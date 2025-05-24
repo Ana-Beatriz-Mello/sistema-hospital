@@ -1,0 +1,61 @@
+package controller;
+
+import controller.cliente.CtrlManterCliente;
+import controller.medico.CtrlManterMedico;
+import controller.planoDeSaude.CtrlManterPlano;
+import controller.atendimento.CtrlManterAtendimento;
+import model.dao.AbstractDao;
+import viewer.JanelaPrincipal;
+
+public class CtrlPrograma extends AbstractCtrl {
+
+	public CtrlPrograma() {
+		super(null);
+	}
+
+	public void iniciar() {
+		
+		AbstractDao.recuperarObjetos();
+		JanelaPrincipal janela = new JanelaPrincipal(this);
+		janela.setVisible(true);
+		
+	}
+
+	public void encerrar() {
+		
+		System.exit(0);
+		
+	}
+
+	public void iniciarManterCliente() {
+		
+		new CtrlManterCliente(this);
+		
+	}
+	
+	public void iniciarManterPlano() {
+		
+		new CtrlManterPlano(this);
+		
+	}
+
+	public void iniciarManterMedico() {
+		
+		new CtrlManterMedico(this);
+		
+	}
+
+	public void iniciarManterAtendimento() {
+		
+		new CtrlManterAtendimento(this);
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		new CtrlPrograma();
+		
+	}
+
+}
+
